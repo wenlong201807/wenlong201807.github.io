@@ -24,11 +24,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序">
 <meta property="og:url" content="https://github.com/wenlong201807/2020/03/29/sort/03%20insertionSort/index.html">
-<meta property="og:site_name" content="前端探轶专场">
+<meta property="og:site_name" content="前端探轶">
 <meta property="og:description" content="1234567891011121314151617181920function insertionSort(array) &amp;#123;  if (Object.prototype.toString.call(array).slice(8, -1) !&#x3D;&#x3D; &#39;Array&#39;) &amp;#123;    return &#39;array is not an Array!&#39;;  &amp;#125;  for (var i">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-29T08:35:06.121Z">
-<meta property="article:modified_time" content="2020-03-29T08:42:30.803Z">
+<meta property="article:modified_time" content="2020-03-29T12:51:24.671Z">
 <meta property="article:author" content="朱文龙">
 <meta property="article:tag" content="排序算法">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>插入排序 | 前端探轶专场</title>
+  <title>插入排序 | 前端探轶</title>
   
 
 
@@ -97,7 +97,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">前端探轶专场</h1>
+      <h1 class="site-title">前端探轶</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -161,7 +161,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端探轶专场">
+      <meta itemprop="name" content="前端探轶">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-29 16:35:06 / Modified: 16:42:30" itemprop="dateCreated datePublished" datetime="2020-03-29T16:35:06+08:00">2020-03-29</time>
+              <time title="Created: 2020-03-29 16:35:06 / Modified: 20:51:24" itemprop="dateCreated datePublished" datetime="2020-03-29T16:35:06+08:00">2020-03-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,7 +199,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(array).slice(<span class="number">8</span>, <span class="number">-1</span>) !== <span class="string">'Array'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'array is not an Array!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> key = array[i];</span><br><span class="line">    <span class="keyword">var</span> j = i - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; array[j] &gt; key) &#123;</span><br><span class="line">      <span class="comment">// 第一次进入while循环时，array[j + 1] 等于索引i指向的值</span></span><br><span class="line">      array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">      j--; <span class="comment">// j-- 之后，array[j + 1],array[j]动态向左侧一一滑动，直到不符合条件</span></span><br><span class="line">    &#125;</span><br><span class="line">    array[j + <span class="number">1</span>] = key; <span class="comment">// 刷新不符合条件的前一个值</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort(arr));</span><br><span class="line"><span class="comment">//[3,5,15,36,38,44,47]</span></span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(array).slice(<span class="number">8</span>, <span class="number">-1</span>) !== <span class="string">'Array'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'array is not an Array!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> key = array[i];</span><br><span class="line">    <span class="keyword">var</span> j = i - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; array[j] &gt; key) &#123;</span><br><span class="line">      <span class="comment">// 第一次进入while循环时，array[j + 1] 等于索引i指向的值</span></span><br><span class="line">      array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">      j--; <span class="comment">// j-- 之后，array[j + 1],array[j]动态向左侧一一滑动，直到不符合条件</span></span><br><span class="line">    &#125;</span><br><span class="line">    array[j + <span class="number">1</span>] = key; <span class="comment">// 刷新不符合条件的前一个值</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort(arr));</span><br><span class="line"><span class="comment">//[3,5,15,36,38,44,47]</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -299,7 +300,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -308,7 +309,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
