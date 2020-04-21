@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,20 +13,21 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1234567891011121314151617181920function insertionSort(array) &amp;#123;  if (Object.prototype.toString.call(array).slice(8, -1) !&#x3D;&#x3D; &#39;Array&#39;) &amp;#123;    return &#39;array is not an Array!&#39;;  &amp;#125;  for (var i">
+  <meta name="description" content="通过两层循环操作实现 外层递增遍历 里层 while 递减遍历，将更小值放到指定位置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序">
 <meta property="og:url" content="https://github.com/wenlong201807/2020/03/29/sort/03%20insertionSort/index.html">
 <meta property="og:site_name" content="前端探轶">
-<meta property="og:description" content="1234567891011121314151617181920function insertionSort(array) &amp;#123;  if (Object.prototype.toString.call(array).slice(8, -1) !&#x3D;&#x3D; &#39;Array&#39;) &amp;#123;    return &#39;array is not an Array!&#39;;  &amp;#125;  for (var i">
+<meta property="og:description" content="通过两层循环操作实现 外层递增遍历 里层 while 递减遍历，将更小值放到指定位置">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-29T08:35:06.121Z">
-<meta property="article:modified_time" content="2020-03-29T12:51:24.671Z">
+<meta property="article:modified_time" content="2020-04-21T10:09:48.210Z">
 <meta property="article:author" content="朱文龙">
-<meta property="article:tag" content="排序算法">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://github.com/wenlong201807/2020/03/29/sort/03%20insertionSort/">
@@ -118,9 +115,29 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
 
   </li>
   </ul>
@@ -137,6 +154,8 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+
+  <a href="https://github.com/wenlong201807" class="github-corner" title="GitHub" aria-label="GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -155,7 +174,7 @@
     <link itemprop="mainEntityOfPage" href="https://github.com/wenlong201807/2020/03/29/sort/03%20insertionSort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/avatar.jpg">
       <meta itemprop="name" content="朱文龙">
       <meta itemprop="description" content="有你点赞,燃起coding热情">
     </span>
@@ -174,10 +193,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-29 16:35:06 / Modified: 20:51:24" itemprop="dateCreated datePublished" datetime="2020-03-29T16:35:06+08:00">2020-03-29</time>
+              <time title="Created: 2020-03-29 16:35:06" itemprop="dateCreated datePublished" datetime="2020-03-29T16:35:06+08:00">2020-03-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-21 18:09:48" itemprop="dateModified" datetime="2020-04-21T18:09:48+08:00">2020-04-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -185,6 +210,10 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">排序算法</span></a>
                 </span>
             </span>
 
@@ -199,7 +228,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
+        <h2 id="通过两层循环操作实现"><a href="#通过两层循环操作实现" class="headerlink" title="通过两层循环操作实现"></a>通过两层循环操作实现</h2><ul>
+<li>外层递增遍历</li>
+<li>里层 while 递减遍历，将更小值放到指定位置</li>
+</ul>
+<a id="more"></a>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(array).slice(<span class="number">8</span>, <span class="number">-1</span>) !== <span class="string">'Array'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'array is not an Array!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> key = array[i];</span><br><span class="line">    <span class="keyword">var</span> j = i - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; array[j] &gt; key) &#123;</span><br><span class="line">      <span class="comment">// 第一次进入while循环时，array[j + 1] 等于索引i指向的值</span></span><br><span class="line">      array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">      j--; <span class="comment">// j-- 之后，array[j + 1],array[j]动态向左侧一一滑动，直到不符合条件</span></span><br><span class="line">    &#125;</span><br><span class="line">    array[j + <span class="number">1</span>] = key; <span class="comment">// 刷新不符合条件的前一个值</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>];</span><br><span class="line"><span class="built_in">console</span>.log(insertionSort(arr));</span><br><span class="line"><span class="comment">//[3,5,15,36,38,44,47]</span></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -209,8 +243,10 @@
     
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag"># 排序算法</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
           </div>
 
         
@@ -222,7 +258,10 @@
     <a href="/2020/03/29/sort/02%20selectionSort/" rel="prev" title="选择排序">
       <i class="fa fa-chevron-left"></i> 选择排序
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/21/js_core/class/" rel="next" title="js-class">
+      js-class <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -287,11 +326,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过两层循环操作实现"><span class="nav-number">1.</span> <span class="nav-text">通过两层循环操作实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="朱文龙"
+      src="/img/avatar.jpg">
   <p class="site-author-name" itemprop="name">朱文龙</p>
   <div class="site-description" itemprop="description">有你点赞,燃起coding热情</div>
 </div>
@@ -300,7 +342,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -309,11 +351,19 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wenlong201807" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wenlong201807"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode-cn.com/u/zhu-wen-long-2/" title="LeetCode → https:&#x2F;&#x2F;leetcode-cn.com&#x2F;u&#x2F;zhu-wen-long-2&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-acorn"></i>LeetCode</a>
+      </span>
+  </div>
 
 
 
@@ -340,7 +390,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">朱文龙</span>
+  <span class="author" itemprop="copyrightHolder">true</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
