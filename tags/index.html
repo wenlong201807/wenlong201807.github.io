@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/hexo_log1.png">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -208,6 +209,12 @@
 <h1 class="post-title" itemprop="name headline">tags
 </h1>
 
+<p>
+<% if(theme.word_count && !post.no_word_count){ %>
+	<%- partial('post/word') %>
+<% } %>
+</p>
+
 <div class="post-meta">
   
 
@@ -281,6 +288,7 @@
   </div>
 
   <aside class="sidebar">
+
     <div class="sidebar-inner">
 
       <ul class="sidebar-nav motion-element">
@@ -360,7 +368,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2019 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
